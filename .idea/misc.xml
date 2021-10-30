@@ -3,21 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_registro.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout/login.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout/perfil_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recetas_layout.xml" value="0.25" />
-=======
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/red-cetario/app/src/main/res/drawable/cuadrotexto.xml" value="0.34814814814814815" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/red-cetario/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/red-cetario/app/src/main/res/layout/activity_registro.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/red-cetario/app/src/main/res/layout/login.xml" value="0.32760416666666664" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19010416666666666" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19010416666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
->>>>>>> 99081993be5c1fe455bd4ec7d4cda3a4760fc8f3
       </map>
     </option>
   </component>
