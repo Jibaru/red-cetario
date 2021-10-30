@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Redcetario">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.RegistroActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
