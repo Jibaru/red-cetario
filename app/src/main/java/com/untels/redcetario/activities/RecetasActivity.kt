@@ -2,6 +2,7 @@ package com.untels.redcetario.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.untels.redcetario.R
 
 class RecetasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
