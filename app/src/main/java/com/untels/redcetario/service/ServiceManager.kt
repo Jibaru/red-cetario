@@ -13,6 +13,7 @@ object ServiceManager {
     private val recetaService: RecetaService = RecetaService(gson, client)
     private val clienteService: ClienteService = ClienteService(gson, client)
     private val notificacionService: NotificacionService = NotificacionService(gson, client)
+    private val autenticacionService: AutenticacionService = AutenticacionService(gson)
 
     fun getRecetaService(): RecetaService {
         return recetaService
@@ -24,6 +25,10 @@ object ServiceManager {
 
     fun getNotificacionService(): NotificacionService {
         return notificacionService
+    }
+
+    fun getAutenticacionService(): AutenticacionService {
+        return autenticacionService
     }
 
 }
