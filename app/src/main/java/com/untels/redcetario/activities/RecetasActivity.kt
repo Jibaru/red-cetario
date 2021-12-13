@@ -28,6 +28,17 @@ class RecetasActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.item_menu, menu)
+        val itemsDesactivar = mutableListOf<Int>()
+        if (ServiceManager.getAutenticacionService().isAutenticado()) {
+            itemsDesactivar.addAll(listOf(R.id.inicioSesion))
+        } else {
+            itemsDesactivar.addAll(listOf(R.id.perfil, R.id.cerrarSesion, R.id.notificaciones))
+        }
+
+        for (i: Int in itemsDesactivar) {
+            val menuItem = menu?.findItem(i)
+            menuItem?.isVisible = false
+        }
         return true
     }
 
@@ -49,7 +60,14 @@ class RecetasActivity : AppCompatActivity() {
                 true
             }
             R.id.cerrarSesion -> {
-                // TODO: Cerrar sesión
+                ServiceManager.getAutenticacionService().limpiarCliente()
+                val intent = Intent(this, RecetasActivity::class.java)
+                intent.addFlags(
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+                )
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
