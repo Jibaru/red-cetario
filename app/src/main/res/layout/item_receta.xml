@@ -28,16 +28,16 @@
                 android:id="@+id/tvTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Arroz con Pollo"
+                android:text="[titulo]"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvAutor"
+                android:id="@+id/tvCocina"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ignacio Rueda Boada"
+                android:text="[cocina]"
                 android:textColor="#423838"
                 android:textSize="18sp" />
 
@@ -45,7 +45,7 @@
                 android:id="@+id/tvTiempo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 horas 30 minutos"
+                android:text="[tiempo]"
                 android:textColor="#423838"
                 android:textSize="15sp" />
 
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="13 ❤"
+                    android:text="[favoritos ❤]"
                     android:textColor="#423838"
                     android:textSize="15sp" />
 
