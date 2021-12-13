@@ -1,4 +1,9 @@
 package com.untels.redcetario.response
 
-class RecetaResponse {
-}
+import com.untels.redcetario.model.Receta
+import java.io.Serializable
+
+data class RecetaResponse(
+    val ok: Boolean,
+    val receta: Receta
+) : Serializable
