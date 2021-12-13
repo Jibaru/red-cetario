@@ -12,23 +12,17 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
-
         <TextView
+            android:id="@+id/tvNombreCompleto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="22sp"
             android:layout_marginBottom="20dp"
-            android:text="GIANCARLO CHÁVEZ ARQQUE" />
+            android:text="GIANCARLO CHÁVEZ ARQQUE"
+            android:textSize="22sp" />
 
         <EditText
+            android:id="@+id/txtNombrePrefil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20sp"
@@ -42,6 +36,7 @@
             android:padding="10sp" />
 
         <EditText
+            android:id="@+id/txtApePaternoPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20sp"
@@ -55,6 +50,7 @@
             android:padding="10sp" />
 
         <EditText
+            android:id="@+id/txtApeMaternoPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20sp"
@@ -68,6 +64,7 @@
             android:padding="10sp" />
 
         <EditText
+            android:id="@+id/txtCorreoElectronicoPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20sp"
@@ -81,7 +78,7 @@
             android:padding="10sp" />
 
         <Button
-            android:id="@+id/btnInicioSesion"
+            android:id="@+id/btnGuardarPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

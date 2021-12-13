@@ -109,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20sp"
             android:backgroundTint="@color/teal_700"
-            android:text="Iniciar Sesion" />
+            android:text="Iniciar Sesión" />
+
     </LinearLayout>
 </FrameLayout>
