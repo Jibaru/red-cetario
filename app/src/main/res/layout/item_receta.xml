@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:elevation="10dp"
     android:layout_margin="10sp"
-    android:layout_height="140sp">
+    android:layout_height="125sp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,9 +13,10 @@
 
         <ImageView
             android:id="@+id/imgReceta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="10dp"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <LinearLayout
