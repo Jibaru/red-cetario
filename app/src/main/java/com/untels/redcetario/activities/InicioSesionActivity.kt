@@ -3,9 +3,9 @@ package com.untels.redcetario.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.untels.redcetario.R
+import android.widget.Toast
 import com.untels.redcetario.databinding.ActivityInicioSesionBinding
-import com.untels.redcetario.databinding.ActivityRecetasBinding
+import com.untels.redcetario.service.ServiceManager
 import kotlinx.android.synthetic.main.activity_inicio_sesion.*
 
 class InicioSesionActivity : AppCompatActivity() {
@@ -13,12 +13,61 @@ class InicioSesionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_inicio_sesion)
         binding = ActivityInicioSesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnRegistro.setOnClickListener {
             val intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.btnIniciarSesion.setOnClickListener {
+            val correoElectronico = binding.txtCorreoElectronico.text.toString()
+            val contrasenia = binding.txtContrasenia.text.toString()
+
+            if (correoElectronico.isBlank() ||
+                contrasenia.isBlank()
+            ) {
+                Toast.makeText(
+                    this,
+                    "No puede existir campos vacíos",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener;
+            }
+
+            Thread {
+                val respuesta = ServiceManager
+                    .getClienteService()
+                    .iniciarSesion(correoElectronico, contrasenia)
+
+                runOnUiThread {
+                    if (respuesta.ok) {
+                        respuesta.cliente?.let { it1 ->
+                            ServiceManager.getAutenticacionService().setCliente(
+                                it1
+                            )
+                            Toast.makeText(
+                                this,
+                                "Usuario ${it1.nombre} autenticado",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(this, RecetasActivity::class.java)
+                            intent.addFlags(
+                                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or
+                                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            )
+                            startActivity(intent)
+                        }
+                    } else {
+                        Toast.makeText(
+                            this,
+                            respuesta.mensaje,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }.start()
         }
     }
 }
