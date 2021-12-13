@@ -47,7 +47,7 @@ class ClienteService(private val gson: Gson, private val client: OkHttpClient) {
     ): RegistroResponse {
         val map = HashMap<String, String>()
 
-        map.put("correo_electronico", cliente.corroeElectronico)
+        map.put("correo_electronico", cliente.correoElectronico)
         map.put("nombre", cliente.nombre)
         map.put("contrasenia", contrasenia)
         map.put("ape_paterno", cliente.apePaterno)
