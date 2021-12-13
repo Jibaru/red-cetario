@@ -1,4 +1,7 @@
 package com.untels.redcetario.model
 
-class PivotIngrediente {
-}
+import java.io.Serializable
+
+data class PivotIngrediente(
+    val cantidad: Int
+) : Serializable

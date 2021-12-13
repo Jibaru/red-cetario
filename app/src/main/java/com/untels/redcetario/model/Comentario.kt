@@ -1,4 +1,8 @@
 package com.untels.redcetario.model
 
-class Comentario {
-}
+import java.io.Serializable
+
+data class Comentario(
+    val id: Int,
+    val descripcion: String
+) : Serializable

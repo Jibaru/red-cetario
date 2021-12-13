@@ -1,4 +1,9 @@
 package com.untels.redcetario.model
 
-class Material {
-}
+import java.io.Serializable
+
+data class Material(
+    val id: Int,
+    val nombre: String,
+    val descripcion: String
+) : Serializable

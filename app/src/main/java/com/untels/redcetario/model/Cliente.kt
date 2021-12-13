@@ -1,4 +1,11 @@
 package com.untels.redcetario.model
 
-class Cliente {
-}
+import java.io.Serializable
+
+data class Cliente(
+    val id: Int,
+    val nombre: String,
+    val apePaterno: String,
+    val apeMaterno: String,
+    val corroeElectronico: String
+) : Serializable
