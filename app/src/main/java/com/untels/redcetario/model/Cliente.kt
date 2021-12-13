@@ -7,5 +7,5 @@ data class Cliente(
     val nombre: String,
     val apePaterno: String,
     val apeMaterno: String,
-    val corroeElectronico: String
+    val correoElectronico: String
 ) : Serializable
