@@ -1,27 +1,21 @@
 package com.untels.redcetario.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.untels.redcetario.R
 import com.untels.redcetario.adapter.RecetaCabeceraAdapter
 import com.untels.redcetario.databinding.ActivityRecetasBinding
-import com.untels.redcetario.response.RecetasResponse
-import com.untels.redcetario.service.RecetaService
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.Response
-import java.io.IOException
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.GsonBuilder
+import com.untels.redcetario.model.RecetaCabecera
+import com.untels.redcetario.service.ServiceManager
 
 class RecetasActivity : AppCompatActivity() {
     private lateinit var adaptador: RecetaCabeceraAdapter
     private lateinit var binding: ActivityRecetasBinding
-    private val recetaService: RecetaService = RecetaService()
-    private val gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-        .create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,35 +25,55 @@ class RecetasActivity : AppCompatActivity() {
         cargarRecetas()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.item_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.perfil -> {
+                val intent = Intent(this, PerfilActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.inicioSesion -> {
+                val intent = Intent(this, InicioSesionActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.notificaciones -> {
+                val intent = Intent(this, NotificacionesActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.cerrarSesion -> {
+                // TODO: Cerrar sesión
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun cargarRecetas() {
-        val that = this
-        this.recetaService.obtenerTodos(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                runOnUiThread {
+        val thread = Thread {
+            val recetas: List<RecetaCabecera> = ServiceManager
+                .getRecetaService()
+                .obtenerTodos()
+            runOnUiThread {
+                if (recetas.isEmpty()) {
                     Toast.makeText(
-                        that,
-                        "Intente de nuevo",
+                        this,
+                        "No hay recetas para mostrar",
                         Toast.LENGTH_SHORT
                     ).show()
+                } else {
+                    adaptador.updateList(recetas)
                 }
             }
-            override fun onResponse(call: Call, response: Response) {
-                val jsonString = response.body()?.string()
-                val recetasResponse: RecetasResponse = gson.fromJson(jsonString, RecetasResponse::class.java)
-
-                runOnUiThread {
-                    if (recetasResponse.recetas.size == 0) {
-                        Toast.makeText(
-                            that,
-                            "No hay recetas para mostrar",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        adaptador.updateList(recetasResponse.recetas)
-                    }
-                }
-            }
-        })
+        }
+        thread.start();
     }
 
     private fun setupAdapter() {
