@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/perfil"
+        android:title="Perfil"
+        />
+    <item
+        android:id="@+id/inicioSesion"
+        android:title="Iniciar Sesión"
+        />
+    <item
+        android:id="@+id/notificaciones"
+        android:title="Notificaciones"
+        />
+    <item
+        android:id="@+id/cerrarSesion"
+        android:title="Cerrar Sesión"
+        />
+
+</menu>
