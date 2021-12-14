@@ -2,7 +2,9 @@ package com.untels.redcetario.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.untels.redcetario.databinding.ActivityPerfilBinding
+import com.untels.redcetario.model.Cliente
 import com.untels.redcetario.service.ServiceManager
 
 class PerfilActivity : AppCompatActivity() {
@@ -14,7 +16,39 @@ class PerfilActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnGuardarPerfil.setOnClickListener {
-            // TODO: Guardar perfil y actualizar activity
+            if (ServiceManager.getAutenticacionService().isAutenticado()) {
+                val idCliente = ServiceManager.getAutenticacionService().getCliente()!!.id
+                val cliente = Cliente(
+                    id = idCliente,
+                    nombre = binding.txtNombrePrefil.text.toString(),
+                    apePaterno = binding.txtApePaternoPerfil.text.toString(),
+                    apeMaterno = binding.txtApeMaternoPerfil.text.toString(),
+                    correoElectronico = binding.txtCorreoElectronicoPerfil.text.toString()
+                )
+
+                Thread {
+                    val resultado = ServiceManager.getClienteService().actualizar(cliente)
+
+                    runOnUiThread {
+                        if (resultado) {
+                            ServiceManager.getAutenticacionService().setCliente(cliente)
+                            Toast.makeText(
+                                this,
+                                "Perfil actualizado",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            finish()
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "No se pudo actualizar",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }.start()
+            }
         }
 
         setupCliente()
