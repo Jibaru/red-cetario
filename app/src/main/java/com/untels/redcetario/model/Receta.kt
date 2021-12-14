@@ -12,7 +12,7 @@ data class Receta(
     val cocina: String,
     val totalFavoritos: Int,
     val totalComentarios: Int,
-    val tips: String,
+    val tips: String?,
     val dificultad: String,
     val calorias: String,
     val cliente: Cliente,
