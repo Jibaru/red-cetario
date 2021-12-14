@@ -16,6 +16,7 @@ class RegistroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         binding.btnInicioSesion.setOnClickListener {
             val intent = Intent(this, InicioSesionActivity::class.java)
             startActivity(intent)
