@@ -26,6 +26,7 @@ class RecetaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecetaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
         setupIngredientesAdapter()
         setupMaterialesAdapter()
         setupPasosAdapter()

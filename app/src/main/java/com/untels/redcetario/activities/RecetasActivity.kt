@@ -22,6 +22,7 @@ class RecetasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecetasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        title = "Red-Cetario"
         setupAdapter()
         cargarRecetas()
     }

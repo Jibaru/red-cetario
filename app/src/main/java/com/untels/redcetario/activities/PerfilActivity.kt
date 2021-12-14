@@ -15,6 +15,7 @@ class PerfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        title = "Perfil"
 
         binding.btnGuardarPerfil.setOnClickListener {
             if (ServiceManager.getAutenticacionService().isAutenticado()) {

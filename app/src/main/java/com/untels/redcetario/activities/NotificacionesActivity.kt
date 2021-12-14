@@ -21,6 +21,7 @@ class NotificacionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNotificacionesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        title = "Notificaciones"
         setupAdapter()
         cargarNotificaciones()
     }
