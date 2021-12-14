@@ -1,13 +1,12 @@
 package com.untels.redcetario.service
 
 import com.google.gson.Gson
-import com.untels.redcetario.constant.API_BASE
-import com.untels.redcetario.constant.OBTENER_RECETA
-import com.untels.redcetario.constant.OBTENER_RECETAS
+import com.untels.redcetario.constant.*
 import com.untels.redcetario.model.Receta
 import com.untels.redcetario.model.RecetaCabecera
 import com.untels.redcetario.response.RecetaResponse
 import com.untels.redcetario.response.RecetasResponse
+import com.untels.redcetario.response.RegistroResponse
 import okhttp3.*
 
 class RecetaService(private val gson: Gson, private val client: OkHttpClient) {
@@ -20,7 +19,7 @@ class RecetaService(private val gson: Gson, private val client: OkHttpClient) {
         val call: Call = client.newCall(request)
         val response: Response = call.execute()
         val body = response.body()?.string()
-
+        println(body)
         val recetasResponse: RecetasResponse = gson.fromJson(body, RecetasResponse::class.java)
         return recetasResponse.recetas
     }
@@ -34,8 +33,35 @@ class RecetaService(private val gson: Gson, private val client: OkHttpClient) {
         val call: Call = client.newCall(request)
         val response: Response = call.execute()
         val body = response.body()?.string()
-
+        println(body)
         val recetaResponse: RecetaResponse = gson.fromJson(body, RecetaResponse::class.java)
         return recetaResponse.receta
+    }
+
+    fun comentar(idReceta: Int, idCliente: Int, comentario: String): Boolean {
+        val url = API_BASE + PUBLICAR_COMENTARIO.replace("{id}", idReceta.toString())
+        val map = HashMap<String, String>()
+
+        map.put("descripcion", comentario)
+        map.put("id_cliente", idCliente.toString())
+
+        val json = gson.toJson(map)
+
+        val requestBody = RequestBody.create(
+            MediaType.parse("application/json"), json
+        )
+
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+
+        val call: Call = client.newCall(request)
+        val response: Response = call.execute()
+        val body: String? = response.body()?.string()
+
+        println(body)
+
+        return body != null
     }
 }
