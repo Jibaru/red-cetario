@@ -37,7 +37,7 @@ class RecetaCabeceraAdapter constructor(
             binding.root.setOnClickListener {
 
                 val bundle = Bundle().apply {
-                    putSerializable("id_receta", receta.id)
+                    putInt("id_receta", receta.id)
                 }
 
                 val intent = Intent(context, RecetaActivity::class.java).apply {
