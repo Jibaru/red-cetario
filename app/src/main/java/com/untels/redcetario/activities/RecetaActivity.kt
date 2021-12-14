@@ -52,6 +52,8 @@ class RecetaActivity : AppCompatActivity() {
                                 "Comentado",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            finish()
+                            startActivity(intent)
                         }
                     }
                 }.start()
