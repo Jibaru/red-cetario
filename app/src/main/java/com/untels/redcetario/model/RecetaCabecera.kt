@@ -9,5 +9,6 @@ data class RecetaCabecera (
     val totalFavoritos: Int,
     val tiempoPrep: Int,
     val tiempoCoccion: Int,
-    val cocina: String
+    val cocina: String,
+    val cliente: Cliente
 ) : Serializable

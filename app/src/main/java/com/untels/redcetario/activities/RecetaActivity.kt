@@ -85,6 +85,15 @@ class RecetaActivity : AppCompatActivity() {
                 binding.tvDificultadR.text = receta.dificultad
                 val tiempoTotal = receta.tiempoCoccion + receta.tiempoPrep
                 binding.tvDuracionR.text = "$tiempoTotal minutos"
+
+                if (receta.tips == null) {
+                    binding.tvTipsR.text = "Ninguno"
+                } else {
+                    binding.tvTipsR.text = receta.tips
+                }
+
+                binding.tvCaloriasR.text = receta.calorias
+
                 binding.tvCantidadFavoritosR.text = receta.totalFavoritos.toString() + " ❤"
                 Picasso.get()
                     .load(receta.urlImagen)

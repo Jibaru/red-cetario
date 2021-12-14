@@ -25,7 +25,7 @@ class RecetaCabeceraAdapter constructor(
 
         fun bind(receta: RecetaCabecera) {
             binding.tvTitulo.text = receta.titulo
-            binding.tvCocina.text = receta.cocina
+            binding.tvAutor.text = (receta.cliente.nombre + " " + receta.cliente.apePaterno)
             Picasso.get()
                 .load(receta.urlImagen)
                 .into(binding.imgReceta)

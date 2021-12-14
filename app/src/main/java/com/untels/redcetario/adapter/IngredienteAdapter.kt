@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.untels.redcetario.R
 import com.untels.redcetario.databinding.ItemIngredienteBinding
 import com.untels.redcetario.model.Ingrediente
+import com.untels.redcetario.utils.DialogoMensajeUtil
 
 class IngredienteAdapter constructor(
     var context: Context,
@@ -24,6 +25,10 @@ class IngredienteAdapter constructor(
                     ingrediente.pivot.unidad + " " +
                     ingrediente.nombre
             binding.tvIngrediente.text = texto
+
+            binding.root.setOnClickListener {
+                DialogoMensajeUtil.showDialog(context, ingrediente.nombre, ingrediente.descripcion)
+            }
         }
     }
 

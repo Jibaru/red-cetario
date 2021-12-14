@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.untels.redcetario.R
 import com.untels.redcetario.databinding.ItemMaterialBinding
 import com.untels.redcetario.model.Material
+import com.untels.redcetario.utils.DialogoMensajeUtil
 
 class MaterialAdapter constructor(
     var context: Context,
@@ -21,6 +22,10 @@ class MaterialAdapter constructor(
 
         fun bind(material: Material) {
             binding.tvMaterial.text = material.nombre
+
+            binding.root.setOnClickListener {
+                DialogoMensajeUtil.showDialog(context, material.nombre, material.descripcion)
+            }
         }
     }
 
