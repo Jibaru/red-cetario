@@ -20,7 +20,9 @@ class IngredienteAdapter constructor(
         private val binding: ItemIngredienteBinding = ItemIngredienteBinding.bind(itemView)
 
         fun bind(ingrediente: Ingrediente) {
-            val texto = ingrediente.pivot.cantidad.toString() + " " + ingrediente.nombre
+            val texto = ingrediente.pivot.cantidad.toString() + " " +
+                    ingrediente.pivot.unidad + " " +
+                    ingrediente.nombre
             binding.tvIngrediente.text = texto
         }
     }
