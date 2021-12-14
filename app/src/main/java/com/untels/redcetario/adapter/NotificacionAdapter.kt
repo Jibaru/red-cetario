@@ -4,10 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.untels.redcetario.R
 import com.untels.redcetario.databinding.ItemNotificacionBinding
 import com.untels.redcetario.model.Notificacion
+import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
+import com.untels.redcetario.utils.DialogoNotificacionUtil
 
 class NotificacionAdapter constructor(
     var context: Context,
@@ -20,7 +24,22 @@ class NotificacionAdapter constructor(
         private val binding: ItemNotificacionBinding = ItemNotificacionBinding.bind(itemView)
 
         fun bind(notificacion: Notificacion) {
-            // TODO: Mostrar notificación
+            binding.tvTituloNotificacion.text = notificacion.titulo
+            binding.tvFechaNotificacion.text = notificacion.fechaEnvio
+            val visto = notificacion.fechaVisto != null
+            if (visto) {
+                binding.iconoNuevo.isVisible = false
+            }
+
+            binding.root.setOnClickListener {
+                if (!visto) {
+                    binding.iconoNuevo.isVisible = false
+                    Thread {
+                        ServiceManager.getNotificacionService().actualizarFechaVisto(notificacion.id)
+                    }.start()
+                }
+                DialogoNotificacionUtil.showDialog(context, notificacion)
+            }
         }
     }
 
