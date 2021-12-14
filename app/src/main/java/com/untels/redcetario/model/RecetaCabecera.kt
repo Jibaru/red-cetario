@@ -3,7 +3,7 @@ package com.untels.redcetario.model
 import java.io.Serializable
 
 data class RecetaCabecera (
-    val id: String,
+    val id: Int,
     val titulo: String,
     val urlImagen: String,
     val totalFavoritos: Int,
