@@ -1,9 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:scrollbars="none"
     tools:context=".activities.RecetaActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/tvImagenR"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tvTituloR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            android:layout_marginVertical="10dp"
+            android:textStyle="bold"
+            android:text="[Titulo Receta]" />
+
+        <TextView
+            android:id="@+id/tvCocinaR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Cocina]" />
+
+        <TextView
+            android:id="@+id/tvAutorR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Autor]" />
+
+        <TextView
+            android:id="@+id/tvDificultadR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Dificultad]" />
+
+        <TextView
+            android:id="@+id/tvDuracionR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Duración]" />
+
+        <TextView
+            android:id="@+id/tvCantidadFavoritosR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Cantidad Favoritos]" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="10sp"
+            android:text="Ingredientes" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_ingrediente"
+            />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="10sp"
+            android:text="Materiales" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMateriales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_ingrediente"
+            />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="10sp"
+            android:text="Instrucciones"  />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPasos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_paso"
+            />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginVertical="10sp"
+            android:text="Comentarios"  />
+
+        <EditText
+            android:id="@+id/txtComentario"
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:ems="10"
+            android:inputType="text|textMultiLine"
+            android:padding="10sp"
+            android:gravity="top"
+            android:background="@drawable/shape_cuadro_texto"
+            android:hint="Mi comentario"/>
+
+        <Button
+            android:id="@+id/btnComentar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comentar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComentarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_comentario"
+            />
+
+    </LinearLayout>
+</ScrollView>
