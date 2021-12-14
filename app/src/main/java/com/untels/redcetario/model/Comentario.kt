@@ -4,5 +4,6 @@ import java.io.Serializable
 
 data class Comentario(
     val id: Int,
-    val descripcion: String
+    val descripcion: String,
+    val createdAt: String
 ) : Serializable
