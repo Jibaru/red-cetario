@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.untels.redcetario.databinding.ActivityRegistroBinding
 import com.untels.redcetario.model.Cliente
 import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
 import kotlinx.android.synthetic.main.activity_registro.*
 
 class RegistroActivity : AppCompatActivity() {
@@ -67,7 +68,7 @@ class RegistroActivity : AppCompatActivity() {
                 apeMaterno,
                 correoElectronico,
             )
-
+            CargadorUtil.showDialog(this, false)
             Thread {
                 val registroResponse = ServiceManager
                     .getClienteService()
@@ -87,6 +88,7 @@ class RegistroActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+                    CargadorUtil.hideDialog()
                 }
             }.start()
 

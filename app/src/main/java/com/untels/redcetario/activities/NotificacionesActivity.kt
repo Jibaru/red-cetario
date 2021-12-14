@@ -11,6 +11,7 @@ import com.untels.redcetario.adapter.NotificacionAdapter
 import com.untels.redcetario.databinding.ActivityNotificacionesBinding
 import com.untels.redcetario.model.Notificacion
 import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
 
 class NotificacionesActivity : AppCompatActivity() {
     private lateinit var adaptador: NotificacionAdapter
@@ -33,8 +34,8 @@ class NotificacionesActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.limpiarNotificaciones -> {
-                // TODO: Llamar al servicio de notificaciones y limpiat por idCliente
                 if (ServiceManager.getAutenticacionService().isAutenticado()) {
+                    CargadorUtil.showDialog(this, false)
                     val idCliente = ServiceManager.getAutenticacionService().getCliente()!!.id
 
                     Thread {
@@ -50,6 +51,7 @@ class NotificacionesActivity : AppCompatActivity() {
                                 finish()
                                 startActivity(intent)
                             }
+                            CargadorUtil.hideDialog()
                         }
                     }.start()
                 }
@@ -61,6 +63,7 @@ class NotificacionesActivity : AppCompatActivity() {
 
     private fun cargarNotificaciones() {
         ServiceManager.getAutenticacionService().getCliente()?.let {
+            CargadorUtil.showDialog(this, false)
             Thread {
                 val notificaciones: List<Notificacion> = ServiceManager
                     .getNotificacionService()
@@ -75,6 +78,7 @@ class NotificacionesActivity : AppCompatActivity() {
                     } else {
                         adaptador.updateList(notificaciones)
                     }
+                    CargadorUtil.hideDialog()
                 }
             }.start()
         }

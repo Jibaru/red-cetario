@@ -12,6 +12,7 @@ import com.untels.redcetario.adapter.RecetaCabeceraAdapter
 import com.untels.redcetario.databinding.ActivityRecetasBinding
 import com.untels.redcetario.model.RecetaCabecera
 import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
 
 class RecetasActivity : AppCompatActivity() {
     private lateinit var adaptador: RecetaCabeceraAdapter
@@ -75,6 +76,7 @@ class RecetasActivity : AppCompatActivity() {
     }
 
     private fun cargarRecetas() {
+        CargadorUtil.showDialog(this, false)
         val thread = Thread {
             val recetas: List<RecetaCabecera> = ServiceManager
                 .getRecetaService()
@@ -89,6 +91,7 @@ class RecetasActivity : AppCompatActivity() {
                 } else {
                     adaptador.updateList(recetas)
                 }
+                CargadorUtil.hideDialog()
             }
         }
         thread.start();

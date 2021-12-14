@@ -6,6 +6,7 @@ import android.widget.Toast
 import com.untels.redcetario.databinding.ActivityPerfilBinding
 import com.untels.redcetario.model.Cliente
 import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
 
 class PerfilActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPerfilBinding
@@ -25,7 +26,7 @@ class PerfilActivity : AppCompatActivity() {
                     apeMaterno = binding.txtApeMaternoPerfil.text.toString(),
                     correoElectronico = binding.txtCorreoElectronicoPerfil.text.toString()
                 )
-
+                CargadorUtil.showDialog(this, false)
                 Thread {
                     val resultado = ServiceManager.getClienteService().actualizar(cliente)
 
@@ -46,6 +47,7 @@ class PerfilActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
+                        CargadorUtil.hideDialog()
                     }
                 }.start()
             }

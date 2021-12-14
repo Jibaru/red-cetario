@@ -12,6 +12,7 @@ import com.untels.redcetario.adapter.PasoAdapter
 import com.untels.redcetario.databinding.ActivityRecetaBinding
 import com.untels.redcetario.model.Receta
 import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
 
 class RecetaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecetaBinding
@@ -38,6 +39,7 @@ class RecetaActivity : AppCompatActivity() {
 
         binding.btnComentar.setOnClickListener {
             if (ServiceManager.getAutenticacionService().isAutenticado()) {
+                CargadorUtil.showDialog(this, false)
                 Thread {
                     val idCliente = ServiceManager.getAutenticacionService().getCliente()!!.id
                     val comentario = binding.txtComentario.text.toString()
@@ -55,6 +57,7 @@ class RecetaActivity : AppCompatActivity() {
                             finish()
                             startActivity(intent)
                         }
+                        CargadorUtil.hideDialog()
                     }
                 }.start()
             } else {
@@ -68,6 +71,7 @@ class RecetaActivity : AppCompatActivity() {
     }
 
     fun cargarReceta(idReceta: Int) {
+        CargadorUtil.showDialog(this, false)
         Thread {
             val receta: Receta = ServiceManager
                 .getRecetaService()
@@ -89,6 +93,7 @@ class RecetaActivity : AppCompatActivity() {
                 val pasos = receta.pasos.sortedBy { it.numeroOrden }
                 adaptadorPasos.updateList(pasos)
                 adaptadorComentarios.updateList(receta.comentarios)
+                CargadorUtil.hideDialog()
             }
         }.start()
     }

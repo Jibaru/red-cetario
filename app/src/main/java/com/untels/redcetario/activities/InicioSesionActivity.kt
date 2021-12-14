@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.untels.redcetario.databinding.ActivityInicioSesionBinding
 import com.untels.redcetario.service.ServiceManager
+import com.untels.redcetario.utils.CargadorUtil
 import kotlinx.android.synthetic.main.activity_inicio_sesion.*
 
 class InicioSesionActivity : AppCompatActivity() {
@@ -35,7 +36,7 @@ class InicioSesionActivity : AppCompatActivity() {
                 ).show()
                 return@setOnClickListener;
             }
-
+            CargadorUtil.showDialog(this, false)
             Thread {
                 val respuesta = ServiceManager
                     .getClienteService()
@@ -67,6 +68,7 @@ class InicioSesionActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+                    CargadorUtil.hideDialog()
                 }
             }.start()
         }
