@@ -31,7 +31,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:backgroundTint="@color/teal_200"
-                android:src="@android:drawable/star_on"
+                android:src="@android:drawable/star_off"
                 app:borderWidth="0dp"
                 app:elevation="6dp"
                 android:clickable="true"
@@ -142,7 +142,57 @@
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:text="Duración:"
+                    android:text="Tiempo Preparación:"
+                    />
+
+                <TextView
+                    android:id="@+id/tvTiempoPrepR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="[Tiempo Prep]"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="Tiempo Cocción:"
+                    />
+
+                <TextView
+                    android:id="@+id/tvTiempoCocR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="[Tiempo Cocc]"
+                    android:textAlignment="textEnd"
+                    android:textSize="17sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="Tiempo total:"
                     />
                 <TextView
                     android:id="@+id/tvDuracionR"

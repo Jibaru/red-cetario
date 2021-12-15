@@ -1,5 +1,6 @@
 package com.untels.redcetario.activities
 
+import android.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -21,6 +22,7 @@ class RecetaActivity : AppCompatActivity() {
     private lateinit var adaptadorPasos: PasoAdapter
     private lateinit var adaptadorComentarios: ComentarioAdapter
     private lateinit var receta: Receta
+    private var isFavorito: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +71,35 @@ class RecetaActivity : AppCompatActivity() {
                 ).show()
             }
         }
+
+        binding.btnAgregarFavorito.setOnClickListener {
+            binding.btnAgregarFavorito.setImageResource(R.drawable.star_on)
+
+            if (ServiceManager.getAutenticacionService().isAutenticado()) {
+                Thread {
+                    val idCliente = ServiceManager.getAutenticacionService().getCliente()!!.id
+                    val resultado = ServiceManager
+                        .getRecetaService()
+                        .marcarFavorito(receta.id, idCliente)
+
+                    runOnUiThread {
+                        if (resultado) {
+                            Toast.makeText(
+                                this,
+                                "Se marcó como favorito",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }.start()
+            } else {
+                Toast.makeText(
+                    this,
+                    "Necesita estar autenticado para comentar",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     fun cargarReceta(idReceta: Int) {
@@ -79,11 +110,20 @@ class RecetaActivity : AppCompatActivity() {
                 .obtener(idReceta)
             runOnUiThread {
                 this.receta = receta
+                val favoritos = receta.clientesFavoritos.filter { it.id == receta.id }
+
+                if (favoritos.isEmpty()) {
+                    isFavorito = true
+                    binding.btnAgregarFavorito.setImageResource(R.drawable.star_on)
+                }
+
                 binding.tvTituloR.text = receta.titulo
                 binding.tvCocinaR.text = receta.cocina
                 binding.tvAutorR.text = (receta.cliente.nombre + " " + receta.cliente.apePaterno)
                 binding.tvDificultadR.text = receta.dificultad
                 val tiempoTotal = receta.tiempoCoccion + receta.tiempoPrep
+                binding.tvTiempoPrepR.text = "${receta.tiempoPrep} minutos"
+                binding.tvTiempoCocR.text = "${receta.tiempoCoccion} minutos"
                 binding.tvDuracionR.text = "$tiempoTotal minutos"
 
                 if (receta.tips == null) {

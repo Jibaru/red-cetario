@@ -64,4 +64,28 @@ class RecetaService(private val gson: Gson, private val client: OkHttpClient) {
 
         return body != null
     }
+
+    fun marcarFavorito(idReceta: Int, idCliente: Int): Boolean {
+        val url = API_BASE + MARCAR_RECETA_FAVORITA.replace("{id}", idReceta.toString())
+        val map = HashMap<String, String>()
+
+        map.put("id_cliente", idCliente.toString())
+
+        val json = gson.toJson(map)
+
+        val requestBody = RequestBody.create(
+            MediaType.parse("application/json"), json
+        )
+
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+
+        val call: Call = client.newCall(request)
+        val response: Response = call.execute()
+        val body: String? = response.body()?.string()
+
+        return body != null
+    }
 }

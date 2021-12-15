@@ -19,5 +19,6 @@ data class Receta(
     val comentarios: List<Comentario>,
     val ingredientes: List<Ingrediente>,
     val materiales: List<Material>,
-    val pasos: List<Paso>
+    val pasos: List<Paso>,
+    val clientesFavoritos: List<ClienteId>
 ) : Serializable
