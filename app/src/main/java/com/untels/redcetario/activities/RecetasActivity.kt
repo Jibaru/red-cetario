@@ -17,6 +17,7 @@ import com.untels.redcetario.utils.CargadorUtil
 class RecetasActivity : AppCompatActivity() {
     private lateinit var adaptador: RecetaCabeceraAdapter
     private lateinit var binding: ActivityRecetasBinding
+    private lateinit var recetas: List<RecetaCabecera>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,12 @@ class RecetasActivity : AppCompatActivity() {
         title = "Red-Cetario"
         setupAdapter()
         cargarRecetas()
+
+        binding.btnBuscar.setOnClickListener {
+            val busqueda = binding.edtBusqueda.text.toString().trim().lowercase()
+            val recetasFiltradas = this.recetas.filter { it.titulo.lowercase().contains(busqueda) }
+            adaptador.updateList(recetasFiltradas)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -90,6 +97,7 @@ class RecetasActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
+                    this.recetas = recetas
                     adaptador.updateList(recetas)
                 }
                 CargadorUtil.hideDialog()
