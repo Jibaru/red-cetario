@@ -15,3 +15,11 @@ Proyecto final de DAM
 
 Puedes descargar la aplicación directamente desde la playstore en este enlace: 
 [Redcetario](https://play.google.com/store/apps/details?id=com.untels.redcetario&hl=es_PE&gl=US)
+
+## Capturas
+
+![01](screenshots/01.png)
+![03](screenshots/02.png)
+![04](screenshots/03.png)
+![05](screenshots/04.png)
+![06](screenshots/06.png)
