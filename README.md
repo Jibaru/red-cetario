@@ -1,6 +1,12 @@
 # RED-CETARIO
 
-Proyecto final de DAM
+Aplicación Lite de recetas
+
+## Autores
+
+- Rueda Boada Ignacio Raúl
+- Julca Janett Deisy
+- Cóndor García Daniel
 
 ## Descripción
 
