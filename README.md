@@ -1,28 +1,28 @@
 # RED-CETARIO
 
-Aplicación Lite de recetas
+Lite mobile recipes app
 
-## Autores
+## Authors
 
-- Rueda Boada Ignacio Raúl
-- Julca Janett Deisy
-- Cóndor García Daniel
+- **Janett Deisy Julca Flores**, *Faculty of Engineering and Management*, *National Technological University of South Lima, Lima, Perú*
+- **Ignacio Raúl Rueda Boada**, *Faculty of Engineering and Management*, *National Technological University of South Lima, Lima, Perú*
+- **Daniel Josué Cóndor García**, *Faculty of Engineering and Management*, *National Technological University of South Lima, Lima, Perú*
 
-## Descripción
+## Description
 
-- La aplicación permite ver un listado de recetas proveniente de un servicio web
-- La aplicación permite autenticarse
-- La aplicación permite seleccionar una receta y ver los detalles de esta
-- La aplicación permite comentar una receta si el usuario está autenticado
-- La aplicación permite obtener notificaciones del servicio web
-- La aplicación permite actualizar el perfil del usuario
+- The application allows you to see a list of recipes from a web service
+- The application allows you to authenticate
+- The application allows you to select a recipe and see the details of this
+- The application allows commenting on a recipe if the user is authenticated
+- The application allows to get notifications from the web service
+- The application allows updating the user's profile
 
-## Descargar
+## Download
 
-Puedes descargar la aplicación directamente desde la playstore en este enlace: 
+You can download the application directly from the playstore at this link:
 [Redcetario](https://play.google.com/store/apps/details?id=com.untels.redcetario&hl=es_PE&gl=US)
 
-## Capturas
+## Screenshots
 
 ![01](screenshots/01.png)
 ![03](screenshots/02.png)
