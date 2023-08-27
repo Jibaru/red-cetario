@@ -4,7 +4,7 @@ Lite mobile recipes app
 
 ## Authors
 
-- [**Janett Deisy Julca Flores**](https://github.com/janettjulcaflores), *Teacher at Faculty of Engineering and Management*, *Universidad Nacional Tecnológica de Lima Sur, Lima, Perú*
+- [**Janett Deisy Julca Flores**](https://github.com/janettjulcaflores), *Professor at Faculty of Engineering and Management*, *Universidad Nacional Tecnológica de Lima Sur, Lima, Perú*
 - [**Ignacio Raúl Rueda Boada**](https://github.com/Jibaru), *Graduated from Faculty of Engineering and Management*, *Universidad Nacional Tecnológica de Lima Sur, Lima, Perú*
 - [**Daniel Josué Cóndor García**](https://github.com/danielcondor9), *Student at Faculty of Engineering and Management*, *Universidad Nacional Tecnológica de Lima Sur, Lima, Perú*
 
