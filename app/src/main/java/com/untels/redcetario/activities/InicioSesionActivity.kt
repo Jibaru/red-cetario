@@ -7,7 +7,6 @@ import android.widget.Toast
 import com.untels.redcetario.databinding.ActivityInicioSesionBinding
 import com.untels.redcetario.service.ServiceManager
 import com.untels.redcetario.utils.CargadorUtil
-import kotlinx.android.synthetic.main.activity_inicio_sesion.*
 
 class InicioSesionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInicioSesionBinding

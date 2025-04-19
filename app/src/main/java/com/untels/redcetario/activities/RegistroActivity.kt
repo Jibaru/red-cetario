@@ -8,7 +8,6 @@ import com.untels.redcetario.databinding.ActivityRegistroBinding
 import com.untels.redcetario.model.Cliente
 import com.untels.redcetario.service.ServiceManager
 import com.untels.redcetario.utils.CargadorUtil
-import kotlinx.android.synthetic.main.activity_registro.*
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegistroBinding

@@ -6,15 +6,14 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.untels.redcetario.R
-import com.untels.redcetario.model.Notificacion
-import kotlinx.android.synthetic.main.dialogo_mensaje.*
-import kotlinx.android.synthetic.main.dialogo_notificacion.*
+import com.untels.redcetario.databinding.DialogoMensajeBinding
 
 class DialogoMensaje(
     context: Context,
     private val titulo: String,
     private val descripcion: String
 ) : Dialog(context) {
+    private lateinit var binding: DialogoMensajeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,7 @@ class DialogoMensaje(
         )
         window?.setBackgroundDrawableResource(R.color.black_transparent)
 
-        btnAceptarMensaje.setOnClickListener {
+        binding.btnAceptarMensaje.setOnClickListener {
             dismiss()
         }
     }

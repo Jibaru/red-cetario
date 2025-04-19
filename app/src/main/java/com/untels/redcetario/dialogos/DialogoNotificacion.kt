@@ -7,14 +7,11 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.untels.redcetario.R
-import com.untels.redcetario.databinding.ActivityInicioSesionBinding
 import com.untels.redcetario.databinding.DialogoNotificacionBinding
 import com.untels.redcetario.model.Notificacion
-import kotlinx.android.synthetic.main.dialogo_notificacion.*
-import kotlinx.android.synthetic.main.item_notificacion.*
-import org.w3c.dom.Text
 
 class DialogoNotificacion(context: Context, private val notificacion: Notificacion) : Dialog(context)  {
+    private lateinit var binding: DialogoNotificacionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +28,7 @@ class DialogoNotificacion(context: Context, private val notificacion: Notificaci
         )
         window?.setBackgroundDrawableResource(R.color.black_transparent)
 
-        btnAceptarNoti.setOnClickListener {
+        binding.btnAceptarNoti.setOnClickListener {
             dismiss()
         }
     }

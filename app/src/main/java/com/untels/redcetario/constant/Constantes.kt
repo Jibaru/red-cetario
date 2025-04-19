@@ -1,6 +1,6 @@
 package com.untels.redcetario.constant
 
-const val API_BASE = "https://redcetario.ignaciorueda.com"
+const val API_BASE = "https://red-cetario-api.vercel.app"
 const val OBTENER_RECETAS = "/api/recetas"
 const val OBTENER_RECETA = "/api/receta/{id}"
 const val LOGIN = "/api/login"
