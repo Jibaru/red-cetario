@@ -1,11 +1,9 @@
 package com.untels.redcetario.dialogos
 
 import android.app.Dialog
-import android.app.Notification
 import android.content.Context
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.WindowManager
 import com.untels.redcetario.R
 import com.untels.redcetario.databinding.DialogoNotificacionBinding
 import com.untels.redcetario.model.Notificacion
@@ -15,21 +13,22 @@ class DialogoNotificacion(context: Context, private val notificacion: Notificaci
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialogo_notificacion)
-        val titulo: TextView = findViewById(R.id.tvTituloNoti)
-        val descripcion: TextView = findViewById(R.id.tvDescripcionNoti)
-        val fechaEnvio: TextView = findViewById(R.id.tvFechaEnvio)
-        titulo.text = notificacion.titulo
-        descripcion.text = notificacion.descripcion
-        fechaEnvio.text = notificacion.fechaEnvio
+        binding = DialogoNotificacionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.tvTituloNoti.text      = notificacion.titulo
+        binding.tvDescripcionNoti.text = notificacion.descripcion
+        binding.tvFechaEnvio.text      = notificacion.fechaEnvio
+
+        binding.btnAceptarNoti.setOnClickListener { dismiss() }
+    }
+
+    override fun onStart() {
+        super.onStart()
         window?.setLayout(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.MATCH_PARENT
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
         )
         window?.setBackgroundDrawableResource(R.color.black_transparent)
-
-        binding.btnAceptarNoti.setOnClickListener {
-            dismiss()
-        }
     }
 }

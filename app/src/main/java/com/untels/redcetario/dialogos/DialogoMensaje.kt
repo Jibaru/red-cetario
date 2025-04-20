@@ -17,17 +17,18 @@ class DialogoMensaje(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.dialogo_mensaje)
+        // 1) Inflamos el binding
+        binding = DialogoMensajeBinding.inflate(layoutInflater)
+        // 2) Le decimos al Dialog que use la root del binding
+        setContentView(binding.root)
 
-        val titulo: TextView = findViewById(R.id.tvTituloMensaje)
-        val descripcion: TextView = findViewById(R.id.tvContenidoMensaje)
-
-        titulo.text = this.titulo
-        descripcion.text = this.descripcion
+        // 3) Asignamos textos directamente al binding
+        binding.tvTituloMensaje.text = titulo
+        binding.tvContenidoMensaje.text = descripcion
 
         window?.setLayout(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.MATCH_PARENT
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         window?.setBackgroundDrawableResource(R.color.black_transparent)
 
