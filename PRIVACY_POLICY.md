@@ -28,6 +28,10 @@ We do not share your personal information with third parties.
 
 We take reasonable measures to help protect your information from loss, theft, misuse, and unauthorized access, disclosure, alteration, and destruction. However, please be aware that our application may transmit data over unencrypted networks (`usesCleartextTraffic` is enabled). This means that we cannot guarantee the absolute security of your data, and you should be aware of the risks involved in transmitting data over unsecured networks.
 
+**Children's Privacy**
+
+Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.
+
 **Changes to This Privacy Policy**
 
 We may update this Privacy Policy from time to time. If we make any material changes, we will notify you by posting the new Privacy Policy on this page.
